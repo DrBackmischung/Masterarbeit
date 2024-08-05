@@ -1,0 +1,51 @@
+\chapter{Theoretische Grundlagen}
+Um den Gedanken in den folgenden Kapiteln folgen zu können, ist es wichtig, vorab Grundbegriffe und Konzepte zu erklären. Diese theoretischen Grundlagen, Grundbegriffe und Konzepte werden in den Folgekapiteln vorgestellt.
+
+\section{Grundbegriffe}
+Die folgenden Grundbegriffe sind essenzielle Vokabeln in dieser Masterarbeit und somit zum vollen Verständnis notwendig. Dabei handelt es sich um technische Grundlagen aus dem Umfeld dieser Arbeit sowie die Beschreibung der benutzten Methoden und Softwareprodukte.
+
+\subsection{ABAP}
+\ac{ABAP} ist eine domänenspezifische Programmiersprache der 4. Generation \cite[S. 25]{keller_abap_2006}, die 1983 von SAP speziell für die Entwicklung von Geschäftsapplikationen entwickelt wurde und somit in den SAP-Umgebungen genutzt werden kann \cite[S. 1/2ff]{sap-documentation_abap4_1996}. Sie wurde ursprünglich für die Programmierung von R/3-Systemen entwickelt, kann jedoch auch in modernen Produkten und System der SAP genutzt werden \cite[S. 23ff.]{keller_abap_2006}. Dabei ist das dazugehörige R/3-System ein Enterprise-Ressource-Planning-System, welches 1992 von SAP veröffentlicht wurde \cite[S. 15]{schicht_sap_1999}. ABAP unterstützt sowohl prozedurale als auch objektorientierte Programmierparadigmen, wobei prozedurale Programmierung in den letzten Jahren durch objektorientierter Programmierung abgelöst wurde \cite[S. 136 ff. + 172 ff.]{sap_bc400_2008}. ABAP bietet eine Vielzahl von Bibliotheken und Funktionen für die Entwicklung von Geschäftslogik, Benutzeroberflächen, Datenbankzugriffen und andere Anforderungen eines Unternehmens \cite[S. 24]{keller_abap_2006}.
+
+%Zu den wichtigsten Funktionen von ABAP gehört Zum einen der übersichtliche und stabiler Debugger \cite[S. 72ff.]{pegiel_abap_2021} und zum anderen eine direkte Verbindung zu Datenbanken, die openSQL-Befehle ohne Verbindungsaufbau ausführbar macht \cite[S. 11/2ff.]{sap-documentation_abap4_1996} \cite[S. 58]{blumenthal_abap_2005}. Außerdem verfügt ABAP über eine in beide Entwicklungsumgebungen eingebaute Schlüsselwortdokumentation, die auch über die Webseite aufrufbar ist und über alle Schlüsselwörter Buch führt \cite[S. 83]{pegiel_abap_2021}.
+
+\subsection{ABAP Development Tools}
+Die \ac{ADT} sind eine Erweiterung für die \ac{IDE} Eclipse, welche genutzt wird, um in der Programmiersprache ABAP zu entwickeln \cite[S. 21]{sap_installing_2022}. Die \ac{ADT} sind entweder als nachträglich hinzufügbare Erweiterung für Eclipse oder vorkonfiguriert als Gesamtpaket verfügbar \cite{sap_sap_nodate}. 
+
+\ac{ABAP} kann zum einen in den \ac{ADT} \cite[S. 1ff.]{pegiel_abap_2021}, jedoch auch in einer in den Applikationsserver von SAP NetWeaver integrierten Entwicklungsumgebung entwickelt werden \cite[S. 26]{keller_abap_2006} \cite{sap_development_nodate}. Dadurch, dass in modernen ABAP-Systemen, die in der S/4HANA Cloud laufen, der NetWeaver nicht existiert, wird modernes ABAP nur noch in den \ac{ADT} programmiert \cite{sap_abap_nodate-2}. Das sorgt dafür, dass Plugins für die ABAP Cloud Entwicklung im ADT umgesetzt werden müssen. 
+
+Neben der normalen Entwicklung von Programmen, gehört zu den Funktionen der \ac{ADT} noch der Debugger, das ABAP Dictionary \cite[S. 1/2-1/6]{sap-documentation_abap4_1996-1}, verschiedene Möglichkeiten zum Testen von Code \cite[S. 89ff.]{pegiel_abap_2021} \cite{sap_abap_nodate-1} und zum Überprüfen des Programmierstyles \cite[S. 357ff.]{blumenthal_abap_2005}. 
+
+\subsection{SAP HANA}
+SAP HANA ist eine 2010 veröffentliche, spaltenbasierte In-Memory Datenbank von der SAP SE, bei der sich die Daten sowie die dazugehörige Logik der Datenbank im Hauptspeicher befindet \cite[S. 5 ff.]{sap_ha100_2022}. Somit sind schnelle Datenzugriffe möglich, da Daten nicht erst von dem Hintergrundspeicher bzw. der Festplatte geladen werden müssen, was Ressourcen und Zeit spart \cite[S. 7 ff.]{plattner_course_2013}. In vergangenen Jahren war die Größe des Arbeitsspeichers limitiert, an der im Normalfall auch nur eine CPU angeschlossen war. Da der Preis von Hauptspeicher in den letzten Jahren sehr gesunken ist, ist es heutzutage möglich, große Datenmengen bis zu 128 TB \cite[S. 5]{sap_ha100_2022} problemlos im Hauptspeicher zu halten, wovon die SAP HANA Datenbank sowie S/4HANA profitiert. Zwar gibt schon schon seit vielen Jahren In-Memory Datenbanken \cite[53]{hector_main_1992}, jedoch wurden die bisher ausschließlich für analytische Zwecke verwendet. SAP HANA soll nicht nur für Analysen benutzt werden, sondern eine Datenbank für alle verfügbaren Zwecke in modernen Unternehmen sein \cite[S. 43 ff.]{plattner_-memory_2011}.
+
+\subsection{SAP S/4HANA Cloud}
+S/4HANA Cloud ist ein cloud-basiertes \ac{ERP} System, welches im Kern auf der Datenbank SAP HANA basiert \cite[S. 6]{sap_btp100_2022}. Dabei gibt es S/4HANA entweder als Standardsoftware auf der Public Cloud oder auf der Private Cloud \cite{sap_sap_nodate-3} \cite[S. 12 f.]{sap_btp100_2022}. Integraler Bestandteil von S/4HANA ist neben Lösungen wie der SAP BTP die Datenbank HANA, welche von der SAP entwickelt wurde \cite[S. 7]{sap_btp100_2022}.
+
+\subsection{SAP BTP}
+SAP \ac{BTP} ist eine Platform-as-a-Service (PaaS), die es Unternehmen und Entwicklern ermöglicht, ihre Geschäftsprozesse und Anwendungen in der Cloud zu automatisieren und zu optimieren \cite[S. 13 f.]{sap_btp100_2022}. Die \ac{BTP} bietet auch integrierte Werkzeuge für die Entwicklung von Anwendungen, die auf SAP-Technologien wie ABAP, RAP (ABAP RESTful Application Programming), CAP (Cloud Application Programming) und SAP HANA basieren. Dabei beinhaltet die \ac{BTP} fünf verschiedene Arten von Funktionen, welche einem Unternehmen helfen, die digitale Transformation durchzuführen \cite[S. 39]{sap_btp100_2022} \cite{sap_sap_nodate-1}:
+\begin{itemize}
+    \item \textbf{Application Development}: Entwicklung von cloud-basierten Applikationen mit Pro-Code, Low-Code oder No-Code Technologien wie JavaScript, Java, ABAP und SAP MacGyver
+    \item \textbf{Automation}: Automatisierung von Ausführung und Überwachung verschiedener Geschäftsprozesse
+    \item \textbf{Integration}: Bereitstellung von Integrationsmöglichkeiten verschiedener SAP-internen und externen Datenquellen und Programme
+    \item \textbf{Data and Analytics}: Bereicherung der Applikationen durch Analysen und Vorhersagen durch intelligente Datenanalyse
+    \item \textbf{AI}: Nutzung von künstlicher Intelligenz als Entscheidungshilfe und Automatisierungswerkzeug
+\end{itemize}
+
+\section{Nutzwertanalyse}
+
+Die Nutzwertanalyse ist ein Tool, um komplexe Entscheidungen zu treffen \cite[S. 1 ff.]{kuhnapfel_nutzwertanalysen_2014}. Bei dieser Analyse wird das komplexe Entscheidungsproblem in mehrere Teilprobleme bzw. -vergleiche zerlegt, die einzeln betrachtet werden. Die einzelne Teilprobleme bestehen im Kern aus der Bewertung aller Alternativen aufgrund eines Kriteriums, zum Beispiel der Laufzeit, der Bedienbarkeit oder der Kosten. Die Entscheidungen der Teilprobleme werden am Ende zusammengefasst, wobei die Ergebnisse verschieden gewichtet sein können. Als Ergebnis der Nutzwertanalyse entsteht dann ein Wert, der sich aus der Addition der verschiedenen Ergebnisse der Teilprobleme zusammensetzt. Dieser Wert gibt über jede Entscheidungsalternative Aufschluss darüber, wie gut sie bewertet wurde. Ein hoher Wert bedeutet dann ein hoher Nutzwert der untersuchten Alternative \cite[S. 89 f.]{kuhnapfel_vertriebscontrolling_2013}. 
+
+J. B. Kuhnapfel definiert den Vorgang einer Nutzwertanalyse in seinen Büchern, die in der Wissenschaft als Grundlage für die Nutzwertanalyse genutzt werden. In seiner Definition besteht eine Nutzwertanalyse konkret aus 9 Schritten, die aufeinander aufbauen. Folgende Schritte werden für eine Nutzwertanalyse genutzt \cite{kuhnapfel_vertriebscontrolling_2013} \cite{kuhnapfel_nutzwertanalysen_2014} \cite{kuhnapfel_scoring_2021}:
+
+\begin{enumerate}
+    \item Organisation des Arbeitsumfelds
+    \item Benennung des Entscheidungsproblems
+    \item Auswahl der Entscheidungsalternativen
+    \item Sammlung von Entscheidungskriterien
+    \item Gewichtung der Entscheidungskriterien
+    \item Bewertung der Entscheidungskriterien
+    \item Nutzwertberechnung
+    \item Sensibilitätsanalyse
+    \item Dokumentation des Ergebnisses
+\end{enumerate}
